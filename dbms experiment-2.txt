@@ -1,0 +1,158 @@
+
+question-1
+
+mysql> create database student;
+ERROR 1007 (HY000): Can't create database 'student'; database exists
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| department         |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use student;
+Database changed
+mysql> alter table student add primary key(city);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc student;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| regno    | int(3)   | YES  |     | NULL    |       |
+| name     | char(15) | YES  |     | NULL    |       |
+| gender   | char(1)  | YES  |     | NULL    |       |
+| dob      | int(10)  | YES  |     | NULL    |       |
+| mobileno | int(10)  | YES  |     | NULL    |       |
+| city     | char(10) | NO   | PRI |         |       |
++----------+----------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql>
+
+question-2
+
+mysql> create database faculty;
+ERROR 1007 (HY000): Can't create database 'faculty'; database exists
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| department         |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use faculty;
+Database changed
+mysql> alter table faculty add primary key(facno);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc faculty;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| facno    | int(3)   | NO   | PRI | 0       |       |
+| facname  | char(15) | YES  |     | NULL    |       |
+| gender   | char(1)  | YES  |     | NULL    |       |
+| dob      | int(10)  | YES  |     | NULL    |       |
+| mobileno | int(10)  | YES  |     | NULL    |       |
+| doj      | int(10)  | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql>
+
+question-4
+
+mysql> create database department;
+ERROR 1007 (HY000): Can't create database 'department'; database exists
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| department         |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use department;
+Database changed
+mysql> alter table department add primary key(deptno);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc department;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| deptno   | int(10)  | NO   | PRI | 0       |       |
+| deptname | char(10) | YES  |     | NULL    |       |
+| depthead | char(10) | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql>
+
+question-5
+
+mysql> create database course;
+ERROR 1007 (HY000): Can't create database 'course'; database exists
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| department         |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use course;
+Database changed
+mysql> alter table course add primary key(courseno);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc course;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| courseno   | int(3)   | NO   | PRI | 0       |       |
+| coursedesc | char(15) | YES  |     | NULL    |       |
+| coursetype | char(1)  | YES  |     | NULL    |       |
+| semno      | int(10)  | YES  |     | NULL    |       |
+| hallno     | int(10)  | YES  |     | NULL    |       |
+| facno      | int(10)  | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+6 rows in set (0.02 sec)
+
+mysql>
+
