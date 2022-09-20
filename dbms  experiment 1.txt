@@ -1,0 +1,195 @@
+question-1 
+
+mysql> create database student;
+ERROR 1007 (HY000): Can't create database 'student'; database exists
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| department         |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.01 sec)
+
+mysql> use student;
+Database changed
+mysql> create table student (regno int(3),name char(15),gender char(1),dob int(10),mobileno int(10),city char(10));
+ERROR 1050 (42S01): Table 'student' already exists
+mysql> desc student;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| regno    | int(3)   | YES  |     | NULL    |       |
+| name     | char(15) | YES  |     | NULL    |       |
+| gender   | char(1)  | YES  |     | NULL    |       |
+| dob      | int(10)  | YES  |     | NULL    |       |
+| mobileno | int(10)  | YES  |     | NULL    |       |
+| city     | char(10) | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql>
+
+question-2
+
+mysql> create database faculty;
+ERROR 1007 (HY000): Can't create database 'faculty'; database exists
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| department         |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use faculty;
+Database changed
+mysql> create table faculty(facno int(3),facname char(15),gender char(1),mobileno int(10),doj int(10));
+ERROR 1050 (42S01): Table 'faculty' already exists
+mysql> desc faculty;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| facno    | int(3)   | YES  |     | NULL    |       |
+| facname  | char(15) | YES  |     | NULL    |       |
+| gender   | char(1)  | YES  |     | NULL    |       |
+| dob      | int(10)  | YES  |     | NULL    |       |
+| mobileno | int(10)  | YES  |     | NULL    |       |
+| doj      | int(10)  | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+6 rows in set (0.02 sec)
+
+mysql>
+
+question-3
+
+mysql> create database department;
+ERROR 1007 (HY000): Can't create database 'department'; database exists
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| course             |
+| department         |
+| faculty            |
+| mysql              |
+| performance_schema |
+| student            |
+| test               |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> use department;
+Database changed
+mysql> create table department(deptno int(10),deptname char(10),depthead char(10));
+ERROR 1050 (42S01): Table 'department' already exists
+mysql> desc department;
++----------+----------+------+-----+---------+-------+
+| Field    | Type     | Null | Key | Default | Extra |
++----------+----------+------+-----+---------+-------+
+| deptno   | int(10)  | YES  |     | NULL    |       |
+| deptname | char(10) | YES  |     | NULL    |       |
+| depthead | char(10) | YES  |     | NULL    |       |
++----------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql>
+
+question-4
+
+mysql> create database course;
+ERROR 1007 (HY000): Can't create database 'course'; database exists
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> use course;
+Database changed
+mysql> create table course(courseno int(3),coursedesc char(15),coursetype char(1),semno int(10),hallno int(10),facno int(10));
+ERROR 1050 (42S01): Table 'course' already exists
+mysql> desc course;
++------------+----------+------+-----+---------+-------+
+| Field      | Type     | Null | Key | Default | Extra |
++------------+----------+------+-----+---------+-------+
+| courseno   | int(3)   | YES  |     | NULL    |       |
+| coursedesc | char(15) | YES  |     | NULL    |       |
+| coursetype | char(1)  | YES  |     | NULL    |       |
+| semno      | int(10)  | YES  |     | NULL    |       |
+| hallno     | int(10)  | YES  |     | NULL    |       |
+| facno      | int(10)  | YES  |     | NULL    |       |
++------------+----------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> mysql>
+
+question-5
+
+mysql> use faculty;
+Database changed
+mysql> Database changed
+    -> mysql> desc faculty;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Database changed
+mysql> desc faculty' at line 1
+mysql> +----------+----------+------+-----+---------+-------+
+    -> | Field    | Type     | Null | Key | Default | Extra |
+    -> +----------+----------+------+-----+---------+-------+
+    -> | facno    | int(3)   | YES  |     | NULL    |       |
+    -> | facname  | char(15) | YES  |     | NULL    |       |
+    -> | gender   | char(1)  | YES  |     | NULL    |       |
+    -> | dob      | int(10)  | YES  |     | NULL    |       |
+    -> | mobileno | int(10)  | YES  |     | NULL    |       |
+    -> | doj      | int(10)  | YES  |     | NULL    |       |
+    -> +----------+----------+------+-----+---------+-------+
+    -> 6 rows in set (0.02 sec)
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
