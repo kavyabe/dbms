@@ -1,0 +1,122 @@
+mysql> create database d;
+ERROR 1007 (HY000): Can't create database 'd'; database exists
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| a                  |
+| b                  |
+| book               |
+| c                  |
+| course             |
+| customer           |
+| customers          |
+| d                  |
+| data               |
+| fac                |
+| k                  |
+| kavya              |
+| mysql              |
+| performance_schema |
+| student            |
+| studentname        |
+| test               |
++--------------------+
+18 rows in set (0.02 sec)
+
+mysql> use d;
+Database changed
+mysql> create table hospital(pno int(10),pname char(10),admitteddate date,dischargedate date);
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> insert into hospital values(542,'hema','2003-5-7','2003-9-7');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into hospital values(879,'saa','2008-5-7','2008-9-7');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into hospital values(79,'arju','2008-5-9','2008-9-9');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select * from hospital;
++------+-------+--------------+---------------+
+| pno  | pname | admitteddate | dischargedate |
++------+-------+--------------+---------------+
+|  542 | hema  | 2003-05-07   | 2003-09-07    |
+|  879 | saa   | 2008-05-07   | 2008-09-07    |
+|   79 | arju  | 2008-05-09   | 2008-09-09    |
++------+-------+--------------+---------------+
+3 rows in set (0.00 sec)
+
+mysql> delete from hospital where pno=879;
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from hospital;
++------+-------+--------------+---------------+
+| pno  | pname | admitteddate | dischargedate |
++------+-------+--------------+---------------+
+|  542 | hema  | 2003-05-07   | 2003-09-07    |
+|   79 | arju  | 2008-05-09   | 2008-09-09    |
++------+-------+--------------+---------------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
