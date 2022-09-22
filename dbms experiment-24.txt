@@ -1,0 +1,68 @@
+mysql> create database d;
+ERROR 1007 (HY000): Can't create database 'd'; database exists
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| a                  |
+| b                  |
+| book               |
+| c                  |
+| course             |
+| customer           |
+| customers          |
+| d                  |
+| data               |
+| fac                |
+| k                  |
+| kavya              |
+| mysql              |
+| performance_schema |
+| student            |
+| studentname        |
+| test               |
++--------------------+
+18 rows in set (0.00 sec)
+
+mysql> use d;
+Database changed
+mysql> create table carrental(carno int(10),carname char(10),company char(20),price int(200));
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> insert into carrental values(152,'benze','ford',200000);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into carrental values(278,'porshe','audi',900000);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into carrental values(678,'porshe','toyota',700000);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from carrental;
++-------+---------+---------+--------+
+| carno | carname | company | price  |
++-------+---------+---------+--------+
+|   152 | benze   | ford    | 200000 |
+|   278 | porshe  | audi    | 900000 |
+|   678 | porshe  | toyota  | 700000 |
++-------+---------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> update carrental set carname='honda' where carno=678;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from carrental;
++-------+---------+---------+--------+
+| carno | carname | company | price  |
++-------+---------+---------+--------+
+|   152 | benze   | ford    | 200000 |
+|   278 | porshe  | audi    | 900000 |
+|   678 | honda   | toyota  | 700000 |
++-------+---------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql>
+
+
