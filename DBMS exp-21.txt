@@ -1,0 +1,172 @@
+mysql> select Dno, salary from employee
+    -> having salary >=15000;
++-----+--------+
+| Dno | salary |
++-----+--------+
+|   1 |  15000 |
+|   2 |  16000 |
+|   3 |  17000 |
+|   4 |  20000 |
++-----+--------+
+4 rows in set (0.00 sec)
+
+mysql> select Lname, salary from employee order by salary;
++--------+--------+
+| Lname  | salary |
++--------+--------+
+| Smith  |  15000 |
+| Son    |  16000 |
+| Son    |  17000 |
+| Watson |  20000 |
++--------+--------+
+4 rows in set (0.02 sec)
+
+mysql> select Lname, salary from employee order by salary >= 17000;
++--------+--------+
+| Lname  | salary |
++--------+--------+
+| Smith  |  15000 |
+| Son    |  16000 |
+| Son    |  17000 |
+| Watson |  20000 |
++--------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select Lname, Dno from employee order by salary >= 17000;
++--------+-----+
+| Lname  | Dno |
++--------+-----+
+| Smith  |   1 |
+| Son    |   2 |
+| Son    |   3 |
+| Watson |   4 |
++--------+-----+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee
+    -> order by Salary;
++------+--------+--------+--------------+-----+--------+----------+-----+------------+
+| SSN  | Fname  | Lname  | Address      | sex | Salary | Superssn | Dno | BDate      |
++------+--------+--------+--------------+-----+--------+----------+-----+------------+
+| 1534 | John   | Smith  | 242 Fountain | M   |  15000 | 6663     |   1 | 1995-01-09 |
+| 1246 | Jack   | Son    | 656 Mountain | M   |  16000 | 65633    |   2 | 1995-12-08 |
+| 1891 | John   | Son    | 185 Castle   | M   |  17000 | 43453    |   3 | 1998-07-18 |
+| 1998 | Smitha | Watson | 165 Spring   | F   |  20000 | 56659    |   4 | 1991-06-20 |
++------+--------+--------+--------------+-----+--------+----------+-----+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee
+    -> order by Salary desc;
++------+--------+--------+--------------+-----+--------+----------+-----+------------+
+| SSN  | Fname  | Lname  | Address      | sex | Salary | Superssn | Dno | BDate      |
++------+--------+--------+--------------+-----+--------+----------+-----+------------+
+| 1998 | Smitha | Watson | 165 Spring   | F   |  20000 | 56659    |   4 | 1991-06-20 |
+| 1891 | John   | Son    | 185 Castle   | M   |  17000 | 43453    |   3 | 1998-07-18 |
+| 1246 | Jack   | Son    | 656 Mountain | M   |  16000 | 65633    |   2 | 1995-12-08 |
+| 1534 | John   | Smith  | 242 Fountain | M   |  15000 | 6663     |   1 | 1995-01-09 |
++------+--------+--------+--------------+-----+--------+----------+-----+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from employee cross join department;
++------+--------+--------+--------------+-----+--------+----------+-----+------------+--------+----------------+--------+----------------+
+| SSN  | Fname  | Lname  | Address      | sex | Salary | Superssn | Dno | BDate      | DeptNo | DeptName       | MGRSSN | MGR_START_DATE |
++------+--------+--------+--------------+-----+--------+----------+-----+------------+--------+----------------+--------+----------------+
+| 1534 | John   | Smith  | 242 Fountain | M   |  15000 | 6663     |   1 | 1995-01-09 |      1 | Research       | 333453 | 1988-05-22     |
+| 1534 | John   | Smith  | 242 Fountain | M   |  15000 | 6663     |   1 | 1995-01-09 |      2 | Administration | 165426 | 1995-01-01     |
+| 1534 | John   | Smith  | 242 Fountain | M   |  15000 | 6663     |   1 | 1995-01-09 |      3 | Headquater     | 165663 | 1981-05-19     |
+| 1246 | Jack   | Son    | 656 Mountain | M   |  16000 | 65633    |   2 | 1995-12-08 |      1 | Research       | 333453 | 1988-05-22     |
+| 1246 | Jack   | Son    | 656 Mountain | M   |  16000 | 65633    |   2 | 1995-12-08 |      2 | Administration | 165426 | 1995-01-01     |
+| 1246 | Jack   | Son    | 656 Mountain | M   |  16000 | 65633    |   2 | 1995-12-08 |      3 | Headquater     | 165663 | 1981-05-19     |
+| 1891 | John   | Son    | 185 Castle   | M   |  17000 | 43453    |   3 | 1998-07-18 |      1 | Research       | 333453 | 1988-05-22     |
+| 1891 | John   | Son    | 185 Castle   | M   |  17000 | 43453    |   3 | 1998-07-18 |      2 | Administration | 165426 | 1995-01-01     |
+| 1891 | John   | Son    | 185 Castle   | M   |  17000 | 43453    |   3 | 1998-07-18 |      3 | Headquater     | 165663 | 1981-05-19     |
+| 1998 | Smitha | Watson | 165 Spring   | F   |  20000 | 56659    |   4 | 1991-06-20 |      1 | Research       | 333453 | 1988-05-22     |
+| 1998 | Smitha | Watson | 165 Spring   | F   |  20000 | 56659    |   4 | 1991-06-20 |      2 | Administration | 165426 | 1995-01-01     |
+| 1998 | Smitha | Watson | 165 Spring   | F   |  20000 | 56659    |   4 | 1991-06-20 |      3 | Headquater     | 165663 | 1981-05-19     |
++------+--------+--------+--------------+-----+--------+----------+-----+------------+--------+----------------+--------+----------------+
+12 rows in set (0.04 sec)
+
+mysql> select Fname,Dno from employee cross join department;
++--------+-----+
+| Fname  | Dno |
++--------+-----+
+| John   |   1 |
+| John   |   1 |
+| John   |   1 |
+| Jack   |   2 |
+| Jack   |   2 |
+| Jack   |   2 |
+| John   |   3 |
+| John   |   3 |
+| John   |   3 |
+| Smitha |   4 |
+| Smitha |   4 |
+| Smitha |   4 |
++--------+-----+
+12 rows in set (0.00 sec)
+
+mysql> select * from department;
++--------+----------------+--------+----------------+
+| DeptNo | DeptName       | MGRSSN | MGR_START_DATE |
++--------+----------------+--------+----------------+
+|      1 | Research       | 333453 | 1988-05-22     |
+|      2 | Administration | 165426 | 1995-01-01     |
+|      3 | Headquater     | 165663 | 1981-05-19     |
++--------+----------------+--------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from employee;
++------+--------+--------+--------------+-----+--------+----------+-----+------------+
+| SSN  | Fname  | Lname  | Address      | sex | Salary | Superssn | Dno | BDate      |
++------+--------+--------+--------------+-----+--------+----------+-----+------------+
+| 1534 | John   | Smith  | 242 Fountain | M   |  15000 | 6663     |   1 | 1995-01-09 |
+| 1246 | Jack   | Son    | 656 Mountain | M   |  16000 | 65633    |   2 | 1995-12-08 |
+| 1891 | John   | Son    | 185 Castle   | M   |  17000 | 43453    |   3 | 1998-07-18 |
+| 1998 | Smitha | Watson | 165 Spring   | F   |  20000 | 56659    |   4 | 1991-06-20 |
++------+--------+--------+--------------+-----+--------+----------+-----+------------+
+4 rows in set (0.00 sec)
+
+mysql> select Fname, LName, Sex from employee inner join department on employee.Dno = department.Deptno;
++-------+-------+-----+
+| Fname | LName | Sex |
++-------+-------+-----+
+| John  | Smith | M   |
+| Jack  | Son   | M   |
+| John  | Son   | M   |
++-------+-------+-----+
+3 rows in set (0.00 sec)
+
+mysql> create view View_Details as Fname, Lname, Sex from employee where Dno >=2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Fname, Lname, Sex from employee where Dno >=2' at line 1
+mysql> create view View_Details as Fname, Lname, Sex from employee;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Fname, Lname, Sex from employee' at line 1
+mysql> create view View_Details as select Fname, Lname, Sex from employee where Dno >= 2;
+Query OK, 0 rows affected (0.13 sec)
+
+mysql> select * from View_Details;
++--------+--------+-----+
+| Fname  | Lname  | Sex |
++--------+--------+-----+
+| Jack   | Son    | M   |
+| John   | Son    | M   |
+| Smitha | Watson | F   |
++--------+--------+-----+
+3 rows in set (0.09 sec)
+
+mysql> create index Index_View on employee(Fname);
+Query OK, 0 rows affected (0.30 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from Index_viwe;
+ERROR 1146 (42S02): Table 'datas.index_viwe' doesn't exist
+mysql> select * from Index_view;
+ERROR 1146 (42S02): Table 'datas.index_view' doesn't exist
+mysql> show index from employee;
++----------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table    | Non_unique | Key_name   | Seq_in_index | Column_name | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++----------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| employee |          0 | PRIMARY    |            1 | Dno         | A         |           4 |     NULL | NULL   |      | BTREE      |         |               |
+| employee |          0 | BDate      |            1 | BDate       | A         |           4 |     NULL | NULL   | YES  | BTREE      |         |               |
+| employee |          1 | Index_View |            1 | Fname       | A         |           4 |     NULL | NULL   | YES  | BTREE      |         |               |
++----------+------------+------------+--------------+-------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+3 rows in set (0.02 sec)

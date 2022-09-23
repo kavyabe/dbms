@@ -1,0 +1,162 @@
+mysql> use students;
+Database changed
+mysql> use datas;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_datas |
++-----------------+
+| department      |
+| departments     |
++-----------------+
+2 rows in set (0.00 sec)
+
+mysql> desc department;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| DeptNo   | int(15)     | YES  |     | NULL    |       |
+| DeptName | varchar(30) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.12 sec)
+
+mysql> create table Employee(SSN varchar(10), Fname varchar(20), Lname varchar(30), Address varchar(40),
+    -> Sex char(1), Salary number(38), Superssn varchar(50), Dno number(40)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'number(38), Superssn varchar(50), Dno number(40)
+)' at line 2
+mysql> create table Employee(SSN varchar(10), Fname varchar(20), Lname varchar(30), Address varchar(40),
+    -> Sex char(1), Salary int(38), Superssn varchar(50), Dno int(40)
+    -> );
+Query OK, 0 rows affected (0.29 sec)
+
+mysql> alter table departemt
+    -> add MGRSSN int(40);
+ERROR 1146 (42S02): Table 'datas.departemt' doesn't exist
+mysql> alter table department
+    -> add MGRSSN int(40);
+Query OK, 3 rows affected (0.32 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> alter table departemt
+    -> add MGR_START_DATE date;
+ERROR 1146 (42S02): Table 'datas.departemt' doesn't exist
+mysql> alter table department
+    -> add MGR_START_DATE date;
+Query OK, 3 rows affected (0.57 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> desc department;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| DeptNo         | int(15)     | YES  |     | NULL    |       |
+| DeptName       | varchar(30) | YES  |     | NULL    |       |
+| MGRSSN         | int(40)     | YES  |     | NULL    |       |
+| MGR_START_DATE | date        | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.07 sec)
+
+mysql>
+mysql> insert into department values(1, "Research", 3334445555, "1988.05.22");
+ERROR 1264 (22003): Out of range value for column 'MGRSSN' at row 1
+mysql> insert into department values(1, "Research", 333453, "1988.05.22");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into department values(2, "Administration", 165426, "1995.01.01");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into department values(3, "Headquater", 165663, "1981.05.19");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from department;
++--------+----------------+--------+----------------+
+| DeptNo | DeptName       | MGRSSN | MGR_START_DATE |
++--------+----------------+--------+----------------+
+|      1 | John           |   NULL | NULL           |
+|      2 | Smitha         |   NULL | NULL           |
+|      3 | Williams       |   NULL | NULL           |
+|      1 | Research       | 333453 | 1988-05-22     |
+|      2 | Administration | 165426 | 1995-01-01     |
+|      3 | Headquater     | 165663 | 1981-05-19     |
++--------+----------------+--------+----------------+
+6 rows in set (0.00 sec)
+
+mysql> delete from departmet where Deptname = john;
+ERROR 1146 (42S02): Table 'datas.departmet' doesn't exist
+mysql> delete from department where Deptname = 'john' ;
+Query OK, 1 row affected (0.08 sec)
+
+mysql> delete from department where Deptname = 'smitha' ;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> delete from department where Deptname = 'williams' ;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from department;
++--------+----------------+--------+----------------+
+| DeptNo | DeptName       | MGRSSN | MGR_START_DATE |
++--------+----------------+--------+----------------+
+|      1 | Research       | 333453 | 1988-05-22     |
+|      2 | Administration | 165426 | 1995-01-01     |
+|      3 | Headquater     | 165663 | 1981-05-19     |
++--------+----------------+--------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> desc employee;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| SSN      | varchar(10) | YES  |     | NULL    |       |
+| Fname    | varchar(20) | YES  |     | NULL    |       |
+| Lname    | varchar(30) | YES  |     | NULL    |       |
+| Address  | varchar(40) | YES  |     | NULL    |       |
+| Sex      | char(1)     | YES  |     | NULL    |       |
+| Salary   | int(38)     | YES  |     | NULL    |       |
+| Superssn | varchar(50) | YES  |     | NULL    |       |
+| Dno      | int(40)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+8 rows in set (0.07 sec)
+
+mysql> alter table employee
+    -> add BDate date;
+Query OK, 0 rows affected (0.25 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> insert into employee values("1234", "John", "Smith", "242 Fountain", "M", 15000, "6663", 1, "1995.01.09");
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into employee values("1246", "Jack", "Son", "656 Mountain", "M", 16000, "65633", 2, "1995.12.08");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employee values("1891", "John", "Son", "185 Castle", "M", 17000, "43453", 3, "1998.07.18");
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into employee values("1998", "Smitha", "Watson", "165 Spring", "F", 20000, "56659", 4, "1991.06.20");
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    -> * from employee;
++------+--------+--------+--------------+------+--------+----------+------+------------+
+| SSN  | Fname  | Lname  | Address      | Sex  | Salary | Superssn | Dno  | BDate      |
++------+--------+--------+--------------+------+--------+----------+------+------------+
+| 1234 | John   | Smith  | 242 Fountain | M    |  15000 | 6663     |    1 | 1995-01-09 |
+| 1246 | Jack   | Son    | 656 Mountain | M    |  16000 | 65633    |    2 | 1995-12-08 |
+| 1891 | John   | Son    | 185 Castle   | M    |  17000 | 43453    |    3 | 1998-07-18 |
+| 1998 | Smitha | Watson | 165 Spring   | F    |  20000 | 56659    |    4 | 1991-06-20 |
++------+--------+--------+--------------+------+--------+----------+------+------------+
+4 rows in set (0.00 sec)
+
+mysql> repeat ('John' , 3);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'repeat ('John' , 3)' at line 1
+mysql> select repeat ('john', 3);
++--------------------+
+| repeat ('john', 3) |
